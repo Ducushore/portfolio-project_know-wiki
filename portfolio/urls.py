@@ -16,6 +16,25 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+# importing the "settings" file where, down at the bottom we declared the media dir's :
+from django.conf import settings
+
+# importing the whole "static" app (declared in "settings.py" too: 'django.contrib.staticfiles' :
+from django.conf.urls.static import static
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-]
+                  path('admin/', admin.site.urls),
+              ] \
+              + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# DJANGO ver >=1.7 : Serving files uploaded by a user during development (https://docs.djangoproject.com/en/2.2/howto/static-files/)
+
+# urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)  # DJANGO ver >=1.7 : Serving static files during development
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # DJANGO ver >=1.7 : Serving files uploaded by a user during development
+
+# if settings.DEBUG is False and settings.SANDBOX is True:
+#     urlpatterns += patterns('',
+#                             # files living in /static/, which can be collected or non-collected assets
+#                             (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': 'static'}),
+#                             # files living in /media/, which is where uploaded files etc should go
+#                             (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': 'media'}),
+#                             )

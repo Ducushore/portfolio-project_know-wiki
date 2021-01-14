@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jobs.apps.JobsConfig',  # if missing the final comma, the following error will occur :
+    # ModuleNotFoundError: No module named 'jobs.apps.JobsConfigdjango'; 'jobs.apps' is not a package
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -62,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',  # NEW - related to correct 'media' folder error
             ],
         },
     },
@@ -73,13 +77,25 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# # # # # # #  NoSQL  # # # # # # # # # #
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+# # # # # # #  PostgreSQL  # # # # # # # # # #
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'portfoliodb',
+        'USER': 'postgres',
+        'PASSWORD': 'iarinaD@1995',
+        'HOST': 'localhost',
+        'PORT': 5432,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -114,7 +130,24 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Static files (CSS, JavaScript)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static"),
+#     '/portfolio/static/',
+# ]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
+
+
+# Media files (Images, Videos) - defining 2 new variables to be used to store the media files :
+
+# the name of the root: "media" here is not necessary the same with the "media" folder :
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
+# # MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
+#
+# # the name of the  "media" folder here is not necessary the same with the "media" root :
+MEDIA_URL = '/media/'
