@@ -22,8 +22,12 @@ from django.conf import settings
 # importing the whole "static" app (declared in "settings.py" too: 'django.contrib.staticfiles' :
 from django.conf.urls.static import static
 
+# how to see and have access to the views set in views.py file ?? Through an import, something like this :
+import jobs.views
+
 urlpatterns = [
                   path('admin/', admin.site.urls),
+                  path('', jobs.views.home, name='home'),  # HOMEPAGE
               ] \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # DJANGO ver >=1.7 : Serving files uploaded by a user during development (https://docs.djangoproject.com/en/2.2/howto/static-files/)

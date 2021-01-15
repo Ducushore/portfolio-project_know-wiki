@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'jobs.apps.JobsConfig',  # if missing the final comma, the following error will occur :
     # ModuleNotFoundError: No module named 'jobs.apps.JobsConfigdjango'; 'jobs.apps' is not a package
+    'blog.apps.BlogConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',
