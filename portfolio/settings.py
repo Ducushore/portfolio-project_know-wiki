@@ -134,20 +134,25 @@ USE_TZ = True
 # Static files (CSS, JavaScript)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # Unresolved reference 'static' :
+    # Inspection info: This inspection detects names that should resolve but don't.
+    # Due to dynamic dispatch and duck typing, this is possible in a limited but useful number of cases.
+    # Top-level and class-level items are supported better than instance items.
+
+# STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
+
 STATIC_URL = '/static/'
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static"),
-#     '/portfolio/static/',
-# ]
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'portfolio/static/'),
+]
 
 
 # Media files (Images, Videos) - defining 2 new variables to be used to store the media files :
 
 # the name of the root: "media" here is not necessary the same with the "media" folder :
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')  # may work without ".replace('\\', '/')" ??
+
 # # MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
 #
 # # the name of the  "media" folder here is not necessary the same with the "media" root :

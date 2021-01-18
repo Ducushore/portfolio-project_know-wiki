@@ -3,7 +3,7 @@
 {% load static %}
 <head>
     <meta charset="utf-8">
-    <title>Ducushore'sHome</title>
+    <title>Ducushore'sAllBlog</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
 
     <!-- Bootstrap core CSS : https://getbootstrap.com/docs/3.3/getting-started/  -->
@@ -28,42 +28,54 @@
 </head>
 
 <body>
+
     <header>
-{#        NAVBAR -- VERSION 1 - from BOOTSTRAP : - check the OLD version of the file #}
+{#        NAVBAR -- VERSION 1 - from BOOTSTRAP : https://getbootstrap.com/docs/5.0/examples/album/ #}
 
 {#        NAVBAR -- VERSION 2 - from BOOTSTRAP : https://getbootstrap.com/docs/5.0/components/navbar/ #}
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'home' %}">Ducushore</a>
+                <a class="navbar-brand" href="{% url 'allblogs' %}">Ducushore</a>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+{#            OLDER BOOTSTRAP VERSION (2018) : #}
+{#                <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> #}
+{#                    <div class="navbar-nav ml-auto"> {# "ml-auto" is resposible to moving menu to the right of the page #}
+{#                        <a class="nav-link" href="#">Twitter</a>  {# <span class="sr-only">(current)</span> was deleted , also "nav-link active" #}
+{#                        <a class="nav-link" href="#">Resume</a> #}
+{#                        <a class="nav-link active" href="#">Blog</a> #}
+{#                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>  {# this is example showing a link not highlited, since is disabled #}
+{#                    </div>#}
+{#                </div>#}
+
 {#            NEWER BOOTSTRAP VERSION (2021) :#}
-                <div class="collapse navbar-collapse text-right" id="navbarNav">
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> {# instead of 'id="navbarNav"'> #}
                     <ul class="navbar-nav ml-auto"> {# "ml-auto" is resposible to moving menu to the right of the page #}
                         <li class="nav-item">
+{#                            <a class="nav-link" aria-current="page" href="#">Twitter</a> #}
                             <a class="nav-link" aria-current="page" href="https://www.linkedin.com/in/leonarddafin/">LinkedIN</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% static 'Leonard Dafin CV.pdf' %}">Resume</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'allblogs' %}">Blog</a> {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
+                            <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href='#'>Python & Django</a> {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">SQL</a> {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">MySQL</a> {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Excel & VBA</a> {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
                         </li>
                     </ul>
                 </div>
@@ -72,44 +84,25 @@
     </header>
 
     <main role="main">
-        <section class="py-5 text-center container">
-            <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">Hi, I'm Ducushore, your technology host . . . </h1>
-                    <p class="lead text-muted">This is my technology-blog-like-site. It is created with Python and Django, during my coding scolarship period (2021). Welcome and Enjoy!</p>
-                    <p>
-                        <a href="mailto:leonardafin@yahoo.com" class="btn btn-primary my-2">Send me an e-mail</a>
-{#                        <a href="#" class="btn btn-secondary my-2">Secondary action</a>#}
-                    </p>
-                    <img src="{% static 'EU_primavara2011.png' %}" height="200" />
-                </div>
-            </div>
-        </section>
-
-        <div class="album py-5 bg-light">
-            <div class="container">
-
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    {# THIS IS THE FIRST CARD - the rest can be checkend on the OLD version of the file : #}
-                    {% for job in jobs.all %}
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img class="card-img-top" src="{{ job.image.url }}" />
-                            <div class="card-body">
-                                <p class="card-text">{{ job.summary }} </p>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor job in jobs.all %}
-                </div>
-
-            </div>
+        <div class="container">
+            <h1 class="text-center pt-5">Welcome to Ducushore's Technology Area</h1>
+            <br />
+            <br />
+            <h2>Latest posts : </h2>
+            <hr />  {# traseaza o linie #}
+            {% for blog in blogs.all %}
+                <a href="{% url 'detail' blog.id %}"><h3>{{ blog.title }}</h3></a> [{{ blog.pub_date_pretty }}]  {# instead of "{{ blog.publication_date }}, in order have a nicer view of the date #}
+                <br />
+                <img class="img-fluid" src="{{ blog.image.url }}" height="200" width="200"/>
+                <p>{{ blog.summary }} . . . </p>  {# instead of "{{ blog.body }}", in order to cut the preview to only forst 100 chars #}
+                <br />
+                <br />
+            {% endfor blog in blogs.all %}
         </div>
     </main>
 
     <footer class="text-muted py-5">
         <div class="container text-center">
-
 {#            <p>Copyright Ducushore 2021</p>#}  {# this is a static 2021 version #}
 
             <p>© Copyright Ducushore {% now 'Y' %} </p>  {# this is a autochanging of the YEAR version ! #}
@@ -130,12 +123,5 @@
             crossorigin="anonymous"></script>
 
 </body>
+
 </html>
-
-
-
-
-
-
-
-

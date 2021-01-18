@@ -15,6 +15,22 @@ class Blog(models.Model):
     body = models.TextField()
     image = models.ImageField(upload_to='images/')  # located in the "media" folder
 
+    def __str__(self):
+        # function used when Django is trying to display a specific object in the ADMIN page , e.g. title in this case
+        return str(self.id) + ". " + "[" + str(self.publication_date.strftime('Date: %e-%b-%Y')) + "] -> " + self.title
+
+    def summary(self):
+        # function that will return only the first 100 chars of the blog's body text
+        return self.body[:100]
+
+    def pub_date_pretty(self):
+        # function that will return only the first 100 chars of the blog's body text
+        return self.publication_date.strftime('Date: %e-%b-%Y // Time: %H:%M')
+
+    class Meta:
+        ordering = ('id',)
+
+
 # Add the BLOG app to the settings
 # 'blog.apps.BlogConfig',
 
