@@ -159,6 +159,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')  # may work with
 MEDIA_URL = '/media/'
 
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError:
     pass
