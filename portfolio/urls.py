@@ -25,15 +25,17 @@ from django.conf import settings
 # importing the whole "static" app (declared in "settings.py" too: 'django.contrib.staticfiles' :
 from django.conf.urls.static import static
 
-# how to see and have access to the views set in views.py file ?? Through an import, something like this :
-import jobs.views
+# how to see and have access to the views set in "views.py" file ?? Through an import, something like this :
+import jobs.views  # instead of "from jobs.view import views", since
 
 urlpatterns = [
-                  path('admin/', admin.site.urls),
-                  path("", jobs.views.home, name='home'),  # HOMEPAGE
-                  path('blog/', include('blog.urls')),  # wanting to add the BLOG page in the urls, to be able to call it
-              ] \
-              + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+              path('admin/', admin.site.urls),
+              path("", jobs.views.home, name='home'),  # HOME-PAGE, this line-code saying the following: go to the
+              # 'jobs' app, into the 'views' file, into the 'home' function that will return a file called 'home.html'
+
+              path('blog/', include('blog.urls')),  # adding the 'BLOG' page in the urls, to be able to call it
+          ] \
+          + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # DJANGO ver >=1.7 : Serving files uploaded by a user during development (https://docs.djangoproject.com/en/2.2/howto/static-files/)
 
 

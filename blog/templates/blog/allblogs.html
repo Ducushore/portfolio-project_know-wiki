@@ -35,7 +35,7 @@
 {#        NAVBAR -- VERSION 2 - from BOOTSTRAP : https://getbootstrap.com/docs/5.0/components/navbar/ #}
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'allblogs' %}">Ducushore</a>
+                <a class="navbar-brand" href="{% url 'home' %}">Ducushore</a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,22 +60,26 @@
                             <a class="nav-link" aria-current="page" href="https://www.linkedin.com/in/leonarddafin/">LinkedIN</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% static 'Leonard Dafin CV.pdf' %}">Resume</a>
+                            <a class="nav-link" href="{% static 'Leonard Dafin CV.pdf' %}">MyResume</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href='#'>Python & Django</a> {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
+                            <a class="nav-link" href='#'>Python & Django</a>
+                            {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">MySQL</a> {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">MySQL</a>
+                            {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Excel & VBA</a> {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Excel & VBA</a>
+                            {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">TBD</a>
+                            {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
                         </li>
                     </ul>
                 </div>
@@ -90,11 +94,14 @@
             <br />
             <h2>Latest posts : </h2>
             <hr />  {# traseaza o linie #}
+
             {% for blog in blogs.all %}
-                <a href="{% url 'detail' blog.id %}"><h3>{{ blog.title }}</h3></a> [{{ blog.pub_date_pretty }}]  {# instead of "{{ blog.publication_date }}, in order have a nicer view of the date #}
+                <a href="{% url 'detail' blog.id %}"><h3>{{ blog.title }}</h3></a> [{{ blog.pub_date_pretty }}]
+                {# instead of "{{ blog.publication_date }}, in order have a nicer view of the date #}
                 <br />
                 <img class="img-fluid" src="{{ blog.image.url }}" height="200" width="200"/>
-                <p>{{ blog.summary }} . . . </p>  {# instead of "{{ blog.body }}", in order to cut the preview to only forst 100 chars #}
+                <p>{{ blog.summary }} . . . </p>
+                {# instead of "{{ blog.body }}", in order to cut the preview to only forst 100 chars #}
                 <br />
                 <br />
             {% endfor blog in blogs.all %}
@@ -105,7 +112,7 @@
         <div class="container text-center">
 {#            <p>Copyright Ducushore 2021</p>#}  {# this is a static 2021 version #}
 
-            <p>© Copyright Ducushore {% now 'Y' %} </p>  {# this is a autochanging of the YEAR version ! #}
+            <p>© Leonard Dafin {% now 'Y' %} </p>  {# this is a autochanging of the YEAR version ! #}
         </div>
     </footer>
 

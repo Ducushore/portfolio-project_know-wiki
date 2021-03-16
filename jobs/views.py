@@ -1,10 +1,10 @@
 from django.shortcuts import render
 
-from .models import Job  # from the files models that we have in this folder, import the JOB one
+from .models import Job  # from the 'models' file from this folder, import 'Job' objects (instances of 'Job' class)
 
 
 def home(request):
-    # defining a 'jobs' variable : where "Job.objects" is getting all the jobs from the DB,
+    # defining a 'jobs' variable : where "Job.objects" is getting all the 'jobs' from the DB,
     # and will turn them in Python objects, to be available in the code, later . . .
     jobs = Job.objects  #
 

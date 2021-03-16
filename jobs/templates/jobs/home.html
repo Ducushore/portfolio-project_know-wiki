@@ -3,7 +3,7 @@
 {% load static %}
 <head>
     <meta charset="utf-8">
-    <title>Ducushore'sHome</title>
+    <title>Ducushore'sHomePg</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
 
     <!-- Bootstrap core CSS : https://getbootstrap.com/docs/3.3/getting-started/  -->
@@ -41,26 +41,30 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-{#            NEWER BOOTSTRAP VERSION (2021) :#}
+{#            NEWER BOOTSTRAP VERSION (2021) : NAVBAR is the upper part of the page , with the navigation bar#}
                 <div class="collapse navbar-collapse text-right" id="navbarNav">
                     <ul class="navbar-nav ml-auto"> {# "ml-auto" is resposible to moving menu to the right of the page #}
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="https://www.linkedin.com/in/leonarddafin/">LinkedIN</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% static 'Leonard Dafin CV.pdf' %}">Resume</a>
+                            <a class="nav-link" href="{% static 'Leonard Dafin CV.pdf' %}">MyResume</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'allblogs' %}">Blog</a> {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
+                            <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
+                            {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href='#'>Python & Django</a> {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
+                            <a class="nav-link" href='#'>Python & Django</a>
+                            {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">SQL</a> {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">MySQL</a>
+                            {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Excel & VBA</a> {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Excel & VBA</a>
+                            {# instead of 'class="nav-link active"', who makes the option a lighter-grey #}
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -75,13 +79,17 @@
         <section class="py-5 text-center container">
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
+
                     <h1 class="fw-light">Hi, I'm Ducushore, your technology host . . . </h1>
-                    <p class="lead text-muted">This is my technology-blog-like-site. It is created with Python and Django, during my coding scolarship period (2021). Welcome and Enjoy!</p>
+                    <p class="lead text-muted">This is my technology blog-like site. <br \>It is created by using Python
+                        and Django, <br \>(incl. also Bootstrap and PostgreSQL), <br \>during my coding scolarship period
+                        (2021). <br \>Welcome and Enjoy!</p>
                     <p>
                         <a href="mailto:leonardafin@yahoo.com" class="btn btn-primary my-2">Send me an e-mail</a>
 {#                        <a href="#" class="btn btn-secondary my-2">Secondary action</a>#}
                     </p>
                     <img src="{% static 'EU_primavara2011.png' %}" height="200" />
+
                 </div>
             </div>
         </section>
@@ -90,17 +98,21 @@
             <div class="container">
 
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    {# THIS IS THE FIRST CARD - the rest can be checkend on the OLD version of the file : #}
+
+                    {# THIS IS THE FIRST CARD - the rest can be checked on the OLD version of the 'home.html' file : #}
                     {% for job in jobs.all %}
                     <div class="col">
                         <div class="card shadow-sm">
                             <img class="card-img-top" src="{{ job.image.url }}" />
+                            {# 'image' is one of the class 'Job' properties #}
                             <div class="card-body">
                                 <p class="card-text">{{ job.summary }} </p>
+                                {# 'summary' is the second of the class 'Job' properties #}
                             </div>
                         </div>
                     </div>
                     {% endfor job in jobs.all %}
+
                 </div>
 
             </div>
@@ -112,13 +124,13 @@
 
 {#            <p>Copyright Ducushore 2021</p>#}  {# this is a static 2021 version #}
 
-            <p>© Copyright Ducushore {% now 'Y' %} </p>  {# this is a autochanging of the YEAR version ! #}
+            <p>© Leonard Dafin {% now 'Y' %} </p>  {# this is an autochanging version of the code for YEAR!! #}
         </div>
     </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Placed at the end of the document so that the pages will load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             crossorigin="anonymous"></script>

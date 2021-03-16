@@ -25,7 +25,8 @@ SECRET_KEY = ')4s-5^2(&@5bw53#2a0v5l$it)+ww&1be^^39r%)90-5e83f^n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['167.172.109.205', 'ducushore.info',  'www.ducushore.info']
 
 
 # Application definition

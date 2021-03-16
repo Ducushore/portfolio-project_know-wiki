@@ -25,7 +25,7 @@ class Blog(models.Model):
 
     def pub_date_pretty(self):
         # function that will return only the first 100 chars of the blog's body text
-        return self.publication_date.strftime('Date: %e-%b-%Y // Time: %H:%M')
+        return self.publication_date.strftime(' Date: %e-%b-%Y ][ Time: %H:%M ')
 
     class Meta:
         ordering = ('id',)
